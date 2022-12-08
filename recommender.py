@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 PORT = 5000
 HOST = 'localhost'
 API_ENDPOINT = ' http://localhost:5000'
-TOKEN = '787271888:AAEEWMbQ-t30GTAG-YBZ83kGN250KWa71eY'
+TOKEN = '5932774767:AAFWWC-FYPbKSV2_JYWj7MpZvVxKss5s8gw'
 
 def handle(msg):
 	"""
