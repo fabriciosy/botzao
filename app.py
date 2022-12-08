@@ -1,12 +1,36 @@
 '''
-Telegram Chatbot for movie recommendation
+
 
 python script app.py that implements an HTTP server using Flask. 
 It provides different routes to accept requests to different functions.
 
 Author: fanconic
 '''
+from telebot import TeleBot
 
+app = TeleBot(__name__)
+
+
+@app.route('/command ?(.*)')
+def example_command(message, cmd):
+    chat_dest = message['chat']['id']
+    msg = "Command Recieved: {}".format(cmd)
+
+    app.send_message(chat_dest, msg)
+
+
+@app.route('(?!/).+')
+def parrot(message):
+   chat_dest = message['chat']['id']
+   user_msg = message['text']
+
+   msg = "Parrot Says: {}".format(user_msg)
+   app.send_message(chat_dest, msg)
+
+
+if __name__ == '__main__':
+    app.config['api_key'] = '5932774767:AAFWWC-FYPbKSV2_JYWj7MpZvVxKss5s8gw'
+    app.poll(debug=True)
 import time
 import json
 import logging
