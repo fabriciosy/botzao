@@ -6,12 +6,9 @@ It provides different routes to accept requests to different functions.
 
 Author: fanconic
 """
-from telebot import TeleBot
+import TeleBot
 
-app = TeleBot(_none__)
-
-
-@app.route('/command ?(.*)')
+route('/command ?(.*)')
 def example_command(message, cmd):
     chat_dest = message['chat']['id']
     msg = "Command Recieved: {}".format(cmd)
@@ -19,7 +16,7 @@ def example_command(message, cmd):
     app.send_message(chat_dest, msg)
 
 
-@app.route('(?!/).+')
+route('(?!/).+')
 def parrot(message):
     chat_dest = message['chat']['id']
     user_msg = message['text']
@@ -29,8 +26,8 @@ def parrot(message):
 
 
 if __name__ == '__main__':
-    app.config['api_key'] = '5932774767:AAFWWC-FYPbKSV2_JYWj7MpZvVxKss5s8gw'
-    app.poll(debug=True)
+    telebot.config["5932774767:AAFWWC-FYPbKSV2_JYWj7MpZvVxKss5s8gw"] = '5932774767:AAFWWC-FYPbKSV2_JYWj7MpZvVxKss5s8gw'
+    telebot.poll(debug=True)
 import logging
 import numpy as np
 import pandas as pd
